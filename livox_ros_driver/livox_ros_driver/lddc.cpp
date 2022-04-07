@@ -42,7 +42,7 @@
 double g_ros_init_start_time = -3e8;
 double init_lidar_tim = 3e10;
 double init_ros_time = 0;
-double skip_frame = 100;
+double skip_frame = 20;
 /**************** Modified for R2LIVE **********************/
 
 namespace livox_ros
@@ -560,6 +560,21 @@ namespace livox_ros
     // ANCHOR: Hack LiDAR time
     // std::cout << "Point offsettime = " << packet_offset_time << std::endl;
     /**************** Modified for R2LIVE **********************/
+    if (1)
+    {
+      // if (g_ros_init_start_time < 0 && timestamp >= 0)
+      if (skip_frame)
+      {
+        skip_frame--;
+        init_ros_time = ros::Time::now().toSec();
+        init_lidar_tim = timestamp;
+        g_ros_init_start_time = timestamp;
+        ROS_INFO("========================");
+        ROS_INFO("Init time stamp = %lf", g_ros_init_start_time);
+        ROS_INFO("========================");
+      }
+      /**************** Modified for R2LIVE **********************/
+    }
     livox_msg.header.stamp = ros::Time((timestamp - init_lidar_tim - packet_offset_time )  / 1e9 + init_ros_time);
     /**************** Modified for R2LIVE **********************/
 
