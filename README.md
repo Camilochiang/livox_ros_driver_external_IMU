@@ -1,3 +1,5 @@
+[20220407] : A modified copy of Livox_ROS_driver to isue an external IMU
+
 # Livox ROS Driver([览沃ROS驱动程序中文说明](https://github.com/Livox-SDK/livox_ros_driver/blob/master/README_CN.md))
 This is a modified livox_ros_driver for [R2LIVE](https://github.com/hku-mars/r2live/). In this repo, we have modified the sources files [lddc.cpp](./livox_ros_driver/livox_ros_driver/lddc.cpp) in oder to:
 1. Modified the timestamp of IMU topic and LiDAR topic from LiDAR base to operation system base.
