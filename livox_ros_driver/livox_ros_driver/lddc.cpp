@@ -42,7 +42,7 @@
 double g_ros_init_start_time = -3e8;
 double init_lidar_tim = 3e10;
 double init_ros_time = 0;
-double skip_frame = 20;
+double skip_frame = 100;
 /**************** Modified for R2LIVE **********************/
 
 namespace livox_ros
